@@ -1,5 +1,6 @@
 package com.redhat.coolstore;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,14 +26,13 @@ public class InventoryResource {
 
     @GET
     public List<Inventory> getAll() {
-     //  return Inventory.listAll();
-        return Inventory.<Inventory>streamAll()
+    return Inventory.<Inventory>streamAll()
         .map(p -> {
             if ("Raleigh".equalsIgnoreCase(p.location)) {
                 p.quantity = 1;
             }
-            return p;
-        }).collect(Collectors.toList());
+            return p;})
+        .collect(Collectors.toList());
     }
 
     @GET
