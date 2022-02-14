@@ -31,7 +31,7 @@ public class InventoryResource {
         //           p.quantity = 1;
         //       }
         //      return p;})
-        // .collect(Collectors.toList());
+        .collect(Collectors.toList());
     }
 
     @GET
