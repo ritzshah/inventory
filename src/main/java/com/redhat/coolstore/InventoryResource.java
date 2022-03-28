@@ -28,11 +28,11 @@ public class InventoryResource {
     @GET
     public List<Inventory> getAll() {
     return Inventory.<Inventory>streamAll()
-        .map(p -> {
-              if ("Raleigh".equalsIgnoreCase(p.location)) {
-                  p.quantity = 2;
-              }
-             return p;})
+        // .map(p -> {
+        //       if ("Raleigh".equalsIgnoreCase(p.location)) {
+        //           p.quantity = 2;
+        //       }
+        //      return p;})
         .collect(Collectors.toList());
     }
 
