@@ -15,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+//adding comment
+
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/services/inventory")
@@ -27,9 +29,9 @@ public class InventoryResource {
     public List<Inventory> getAll() {
     return Inventory.<Inventory>streamAll()
         .map(p -> {
-             if ("Raleigh".equalsIgnoreCase(p.location)) {
-                 p.quantity = 1;
-             }
+              if ("Raleigh".equalsIgnoreCase(p.location)) {
+                  p.quantity = 3;
+              }
              return p;})
         .collect(Collectors.toList());
     }
