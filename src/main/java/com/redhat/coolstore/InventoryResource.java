@@ -28,11 +28,11 @@ public class InventoryResource {
     @GET
     public List<Inventory> getAll() {
     return Inventory.<Inventory>streamAll()
-       /*  .map(p -> {
+         .map(p -> {
                if ("Raleigh".equalsIgnoreCase(p.location)) {
                   p.quantity = 1;
               } 
-             return p;}) */
+             return p;}) 
         .collect(Collectors.toList());
     }
 
@@ -40,12 +40,12 @@ public class InventoryResource {
     @Path("/{itemId}")
     public List<Inventory> getAvailability(@PathParam String itemId) {
         return Inventory.<Inventory>streamAll()
-       /*  .map( p -> {
+        .map( p -> {
             if("Raleigh".equalsIgnoreCase(p.location)) {
                 p.quantity = 1;
             } 
            return p;
-        }) */
+        }) 
         .filter(p -> p.itemId.equals(itemId))
         .collect(Collectors.toList());
     }
