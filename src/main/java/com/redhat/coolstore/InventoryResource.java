@@ -30,7 +30,7 @@ public class InventoryResource {
     return Inventory.<Inventory>streamAll()
          .map(p -> {
                if ("Raleigh".equalsIgnoreCase(p.location)) {
-                  p.quantity = 2;
+                  p.quantity = 4;
               } 
              return p;}) 
         .collect(Collectors.toList());
